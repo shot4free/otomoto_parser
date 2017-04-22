@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-def get_links(url):
+def parse(url):
     '''
     Function returns list of parsed links within class in variable ads
     :param url: 

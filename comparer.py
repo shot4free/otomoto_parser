@@ -1,4 +1,4 @@
-from parser_otomoto import get_links
+from parser_otomoto import parse
 from pathlib import Path
 import pickle
 
@@ -6,7 +6,7 @@ search_link = 'https://www.otomoto.pl/osobowe/gdansk/-/-/-/-/minivan--kombi/?sea
 
 data_file = Path('data.csv')
 if data_file.is_file():
-    data = get_links(search_link)
+    data = parse(search_link)
     with open('data.csv', 'rb') as file:
         data_file = pickle.load(file)
     if data == data_file:
@@ -22,7 +22,7 @@ if data_file.is_file():
             pickle.dump(data, resultFile)
 
 else:
-    data = get_links(search_link)
+    data = parse(search_link)
     with open('data.csv', 'wb') as resultFile:
         pickle.dump(data, resultFile)
 
