@@ -2,9 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 
 def get_links(url):
-
+    '''
+    Function returns list of parsed links within class in variable ads
+    :param url: 
+    '''
     res = requests.get(url)
-    res.raise_for_status()
+#    res.raise_for_status()
 
     soup = BeautifulSoup(res.text, 'html.parser')
 
